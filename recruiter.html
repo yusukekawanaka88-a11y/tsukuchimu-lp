@@ -1,0 +1,1200 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>フロントメンバー募集 — ツクチム</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#2BA39C;--teal-deep:#1E8A82;--teal-soft:#C9E7E5;--teal-mist:#EAF4F3;
+    --ink:#0E1313;--ink-2:#2A3434;--muted:#6B7575;
+    --paper:#F6F4EF;--paper-2:#FBFAF6;--line:#E4E2DC;--yellow:#F5D14B;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:"Zen Kaku Gothic New","Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:var(--paper-2);line-height:1.7;-webkit-font-smoothing:antialiased;font-feature-settings:"palt"}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  .num,.en{font-family:"Inter","Zen Kaku Gothic New",sans-serif;font-feature-settings:"ss01";letter-spacing:-0.01em}
+
+  /* ---------- Header ---------- */
+  header.site{position:sticky;top:0;z-index:50;background:rgba(251,250,246,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .site-inner{display:flex;align-items:center;gap:24px;height:72px}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:22px;letter-spacing:.04em;text-decoration:none;color:var(--ink);margin-right:auto}
+  .logo .mark{width:28px;height:28px;display:grid;place-items:center}
+  .logo .badge{font-size:10px;letter-spacing:.18em;background:var(--teal);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;margin-left:4px}
+  nav.primary{display:flex;gap:24px;font-size:14px;font-weight:500}
+  nav.primary a{color:var(--ink-2);text-decoration:none}
+  nav.primary a:hover{color:var(--ink)}
+  .nav-cta{display:flex;gap:10px;align-items:center;margin-left:8px;padding-left:24px;border-left:1px solid var(--line)}
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:14px;letter-spacing:.04em;padding:14px 22px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;border:1.5px solid var(--ink);position:relative;transition:transform .15s ease;white-space:nowrap}
+  .btn .arr{width:18px;height:18px;display:inline-grid;place-items:center;border-radius:50%;background:var(--ink);color:#fff;font-size:11px}
+  .btn.dark{background:var(--ink);color:#fff;box-shadow:6px 6px 0 var(--yellow)}
+  .btn.dark .arr{background:#fff;color:var(--ink)}
+  .btn.teal{background:var(--teal);color:#fff;border-color:var(--teal);box-shadow:6px 6px 0 var(--ink)}
+  .btn.teal .arr{background:#fff;color:var(--teal)}
+  .btn.white{background:#fff;color:var(--ink);border-color:#fff;box-shadow:6px 6px 0 var(--teal)}
+  .btn.white .arr{background:var(--ink);color:#fff}
+  .btn.ghost{border-color:var(--line);background:transparent;color:var(--ink)}
+  .btn.ghost .arr{background:var(--ink);color:#fff}
+  .btn:hover{transform:translate(-2px,-2px)}
+  .btn.dark:hover{box-shadow:8px 8px 0 var(--yellow)}
+  .btn.teal:hover{box-shadow:8px 8px 0 var(--ink)}
+  .btn.white:hover{box-shadow:8px 8px 0 var(--teal)}
+  .btn.sm{padding:10px 16px;font-size:13px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;padding:100px 0 120px;overflow:hidden;background:radial-gradient(900px 500px at 70% 20%,rgba(43,163,156,.12),transparent 65%),var(--paper-2)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--ink);margin-bottom:32px}
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+  h1.hero-title{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:clamp(44px,5.4vw,76px);line-height:1.15;letter-spacing:-.02em;margin:0 0 16px;color:var(--ink)}
+  h1.hero-title em{font-style:normal;color:var(--teal)}
+  h1.hero-title .phrase{display:inline-block;white-space:nowrap}
+  .hero-subline{font-size:16px;font-weight:700;color:var(--teal-deep);margin:0 0 28px;letter-spacing:.01em}
+  .lede{font-size:17px;color:var(--ink-2);margin:0 0 36px;max-width:500px;line-height:1.85}
+  .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--ink-2);background:#fff}
+  .hero-badge .n{width:22px;height:22px;border-radius:50%;background:var(--teal);display:inline-grid;place-items:center;font-size:11px;font-weight:900;font-family:"Inter",sans-serif;color:#fff;flex-shrink:0}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-meta{margin-top:32px;display:flex;gap:24px;align-items:center;color:var(--muted);font-size:13px;flex-wrap:wrap}
+  .hero-meta .div{width:1px;height:14px;background:var(--line)}
+  .hero-meta .ok{color:var(--teal);font-weight:700;margin-right:4px}
+  .hero-visual{position:relative;height:480px}
+  .blob-hero{position:absolute;border-radius:50%;pointer-events:none}
+  .blob-h1{width:260px;height:260px;background:radial-gradient(circle at 30% 30%,rgba(43,163,156,.28),transparent 65%);top:-40px;right:60px}
+  .blob-h2{width:160px;height:160px;background:radial-gradient(circle at 60% 40%,rgba(245,209,75,.18),transparent 70%);bottom:80px;right:20px}
+  .sparkle-h{position:absolute;top:16px;right:24px;color:var(--teal);opacity:.9}
+  .pcard{position:absolute;background:#fff;border-radius:20px;box-shadow:0 30px 60px -20px rgba(0,0,0,.4);color:var(--ink)}
+  .pcard-main{top:20px;left:0;right:0;padding:26px 26px 22px}
+  .pcard-main .ph{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .pcard-main .av{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#fff;display:grid;place-items:center;font-weight:900;font-size:18px;flex-shrink:0}
+  .pcard-main .pname{font-weight:900;font-size:14px;line-height:1.4}
+  .pcard-main .prole{font-size:11px;color:var(--muted);margin-top:2px}
+  .pcard-main .pstats{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line);padding-top:16px}
+  .pstat{text-align:center;padding:0 10px}
+  .pstat+.pstat{border-left:1px solid var(--line)}
+  .pstat .sv{font-family:"Inter",sans-serif;font-weight:800;font-size:26px;color:var(--teal);line-height:1}
+  .pstat .su{font-size:12px;color:var(--ink-2);font-weight:700}
+  .pstat .sl{font-size:11px;color:var(--muted);margin-top:4px}
+  .pcard-mini{padding:14px 18px;display:flex;align-items:center;gap:12px}
+  .pcard-mini .ico{width:36px;height:36px;border-radius:10px;background:var(--teal-mist);display:grid;place-items:center;color:var(--teal-deep);flex-shrink:0}
+  .pcard-mini strong{display:block;font-size:13px;font-weight:800;line-height:1.3}
+  .pcard-mini span{font-size:11px;color:var(--muted)}
+  .pc-remote{bottom:100px;right:-8px;transform:rotate(2deg)}
+  .pc-earn{bottom:20px;left:10px;transform:rotate(-1.5deg)}
+
+  /* ---------- Section frame ---------- */
+  section{padding:120px 0;position:relative}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:56px}
+  .sec-tag{font-size:12px;letter-spacing:.28em;color:var(--teal-deep);font-weight:800;margin-bottom:16px;display:inline-flex;align-items:center;gap:10px}
+  .sec-tag::before{content:"";width:24px;height:1px;background:var(--teal-deep)}
+  .sec-title{font-size:clamp(32px,3.6vw,48px);font-weight:900;line-height:1.25;letter-spacing:-.005em;margin:0;max-width:760px;word-break:keep-all;overflow-wrap:normal}
+  .sec-title em{font-style:normal;color:var(--teal);position:relative}
+  .sec-title em::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:3px;background:var(--teal);opacity:.4}
+  .sec-lede{max-width:380px;color:var(--ink-2);font-size:15px}
+
+  /* ---------- Mission ---------- */
+  .mission{background:#fff;border-top:1px solid var(--line)}
+  .mission-body{max-width:680px;font-size:18px;line-height:2;color:var(--ink-2);margin:40px 0 56px}
+  .mission-body p{margin:0 0 8px}
+  .mission-kw{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .mkw{padding:32px 36px;border-top:3px solid var(--teal-mist)}
+  .mkw:first-child{border-top-color:var(--teal)}
+  .mkw .kw-en{font-family:"Inter",sans-serif;font-weight:800;font-size:22px;letter-spacing:-.01em;color:var(--teal);margin-bottom:10px;display:block}
+  .mkw p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.7}
+
+  /* ---------- CEO Message ---------- */
+  .ceo-msg{background:var(--paper)}
+  .ceo-inner{display:grid;grid-template-columns:260px 1fr;gap:72px;align-items:start}
+  .ceo-photo{aspect-ratio:3/4;background:var(--teal-mist);border-radius:20px;overflow:hidden}
+  .ceo-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .ceo-tag{font-size:12px;letter-spacing:.28em;color:var(--teal-deep);font-weight:800;margin-bottom:24px;display:inline-flex;align-items:center;gap:10px}
+  .ceo-tag::before{content:"";width:24px;height:1px;background:var(--teal-deep)}
+  .ceo-msg blockquote{font-size:16px;color:var(--ink-2);line-height:2;margin:0 0 32px;padding:0;border:none}
+  .ceo-sig{font-weight:800;font-size:14px;color:var(--ink)}
+  .ceo-profile{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+  .ceo-name{font-weight:900;font-size:20px;margin:0 0 4px}
+  .ceo-role{font-size:13px;font-weight:700;color:var(--teal);margin-bottom:12px}
+  .ceo-hist{font-size:13px;color:var(--muted);line-height:1.9}
+
+  /* ---------- Reasons ---------- */
+  .reasons{background:var(--paper-2);border-top:1px solid var(--line)}
+  .reason-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .r-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:40px 32px;position:relative;overflow:hidden}
+  .r-card .num-bg{position:absolute;top:12px;right:20px;font-family:"Inter",sans-serif;font-weight:900;font-size:72px;color:var(--teal-mist);line-height:1;user-select:none}
+  .r-card .ico{width:64px;height:64px;border-radius:20px;background:var(--teal-mist);display:grid;place-items:center;margin-bottom:22px;color:var(--teal-deep)}
+  .r-card .sub{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--teal-deep);margin-bottom:14px}
+  .r-card h3{font-size:22px;font-weight:900;margin:0 0 14px;line-height:1.45}
+  .r-card p{font-size:14px;color:var(--ink-2);margin:0 0 20px}
+  .r-card ul{padding:0;margin:0;list-style:none;border-top:1px dashed var(--line);padding-top:16px}
+  .r-card li{font-size:13px;color:var(--ink-2);padding-left:22px;position:relative;margin:8px 0}
+  .r-card li::before{content:"";position:absolute;left:0;top:9px;width:14px;height:2px;background:var(--teal)}
+  .r-card.featured{border-color:var(--teal);background:linear-gradient(135deg,rgba(43,163,156,.04),#fff 50%)}
+  .r-card.featured .num-bg{color:rgba(43,163,156,.12)}
+
+  /* ---------- Hybrid ---------- */
+  .hybrid{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+  .hybrid .bg-circle{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle at center,rgba(43,163,156,.25),transparent 60%);right:-160px;top:-100px}
+  .hybrid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
+  .h-card{background:rgba(255,255,255,.04);padding:40px 32px;border:1px solid rgba(255,255,255,.1);border-radius:20px}
+  .h-card.center{background:rgba(43,163,156,.1);border-color:rgba(43,163,156,.35)}
+  .h-card .h-label{font-size:11px;letter-spacing:.24em;font-weight:800;color:var(--teal);margin-bottom:20px;display:block}
+  .h-card h3{font-size:22px;font-weight:900;margin:0 0 6px}
+  .h-card .h-role{font-size:13px;color:rgba(255,255,255,.45);margin:0 0 24px}
+  .h-card ul{padding:0;margin:0;list-style:none}
+  .h-card li{font-size:14px;color:rgba(255,255,255,.75);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:flex-start;gap:10px}
+  .h-card li:last-child{border-bottom:none}
+  .h-card li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:8px}
+  .h-card .h-note{font-size:12px;color:rgba(255,255,255,.3);margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}
+  .hybrid-footer{text-align:center;margin-top:40px;font-size:15px;color:rgba(255,255,255,.45);position:relative}
+
+  /* ---------- 8 Jobs ---------- */
+  .jobs{background:var(--paper-2);border-top:1px solid var(--line)}
+  .jobs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .job-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 24px;position:relative;overflow:hidden}
+  .job-card .num{font-family:"Inter",sans-serif;font-weight:800;font-size:48px;color:var(--teal-mist);line-height:1;position:absolute;top:12px;right:16px;user-select:none}
+  .job-card .title{font-size:15px;font-weight:900;margin:0 0 10px;position:relative}
+  .job-card p{font-size:13px;color:var(--ink-2);margin:0;line-height:1.7;position:relative}
+
+  /* ---------- Case type marquee ---------- */
+  .cases{padding:56px 0 64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;overflow:hidden}
+  .cases-label{text-align:center;margin:0 auto 36px;display:flex;align-items:center;justify-content:center;gap:18px;font-size:13px;letter-spacing:.28em;color:var(--ink);font-weight:800}
+  .cases-label::before,.cases-label::after{content:"";display:block;width:48px;height:1px;background:var(--ink);opacity:.4}
+  .cases-label .stack{text-align:center}
+  .cases-label .ja{font-size:20px;font-weight:900;letter-spacing:.08em}
+  .cases-label .en{font-size:11px;letter-spacing:.32em;color:var(--muted);font-weight:700;display:block;margin-top:4px;font-family:"Inter",sans-serif}
+  .marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%)}
+  .marquee+.marquee{margin-top:12px}
+  .marquee-track{display:flex;gap:12px;width:max-content;animation:mql 36s linear infinite}
+  .marquee.rev .marquee-track{animation-name:mqr;animation-duration:42s}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  @keyframes mql{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes mqr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+  .cpill{flex:0 0 auto;padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:14px;font-weight:700;color:var(--ink-2);white-space:nowrap;display:flex;align-items:center;gap:8px;transition:border-color .2s,color .2s}
+  .cpill:hover{border-color:var(--teal);color:var(--teal-deep)}
+  .cpill .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
+
+  /* ---------- Clients ---------- */
+  .clients{background:var(--paper-2);border-top:1px solid var(--line)}
+  .logo-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+  .logo-chip{padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:700;color:var(--ink-2)}
+  .industry-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .ind-pill{padding:8px 18px;border-radius:999px;background:var(--teal-mist);font-size:13px;font-weight:700;color:var(--teal-deep)}
+  .clients-note{font-size:13px;color:var(--muted);margin-top:12px}
+
+  /* ---------- Case studies ---------- */
+  .case-studies{background:#fff;border-top:1px solid var(--line)}
+  .case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .case-card{border:1px solid var(--line);border-radius:24px;padding:40px;overflow:hidden}
+  .case-eyebrow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+  .case-badge{font-size:11px;font-weight:800;letter-spacing:.1em;padding:5px 14px;border-radius:999px;background:var(--teal-mist);color:var(--teal-deep)}
+  .case-card h3{font-size:22px;font-weight:900;margin:0 0 20px;line-height:1.4}
+  .case-result{background:var(--ink);color:#fff;border-radius:16px;padding:24px 28px;margin:24px 0;display:flex;align-items:center;gap:24px}
+  .case-num{line-height:1}
+  .case-num .big{font-family:"Inter",sans-serif;font-size:56px;font-weight:800;letter-spacing:-.03em;color:var(--teal)}
+  .case-num .u{font-family:"Zen Kaku Gothic New",sans-serif;font-size:20px;font-weight:800;color:#fff}
+  .case-desc{font-size:14px;color:rgba(255,255,255,.7);line-height:1.7}
+  .case-chart{margin:24px 0 16px}
+  .chart-label{font-size:11px;letter-spacing:.16em;font-weight:800;color:var(--muted);margin-bottom:12px}
+  .chart-bars{display:flex;gap:8px;align-items:flex-end;height:80px}
+  .bar{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--teal-deep),var(--teal));position:relative}
+  .bar .bv{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);font-size:10px;font-weight:800;color:var(--teal-deep);white-space:nowrap;font-family:"Inter",sans-serif}
+  .chart-xlabels{display:flex;gap:8px;margin-top:4px}
+  .bl{flex:1;font-size:10px;color:var(--muted);text-align:center}
+  .case-tasks{padding:0;margin:16px 0 0;list-style:none}
+  .case-tasks li{font-size:13px;color:var(--ink-2);padding:7px 0 7px 18px;border-bottom:1px solid var(--line);position:relative}
+  .case-tasks li::before{content:"";position:absolute;left:0;top:16px;width:10px;height:2px;background:var(--teal)}
+  .case-tasks li:last-child{border-bottom:none}
+
+  /* ---------- Flow ---------- */
+  .flow{background:var(--paper)}
+  .flow-track{position:relative}
+  .flow-line{position:absolute;left:48px;top:0;bottom:0;width:2px;background:linear-gradient(var(--teal),var(--teal-mist))}
+  .fstep{display:grid;grid-template-columns:96px 1fr 1fr;gap:36px;padding:36px 0;position:relative;align-items:center}
+  .fstep+.fstep{border-top:1px dashed var(--line)}
+  .fstep-num{width:96px;height:96px;border-radius:50%;background:#fff;border:2px solid var(--teal);display:grid;place-items:center;font-family:"Inter",sans-serif;font-weight:800;font-size:30px;color:var(--teal);position:relative;z-index:1}
+  .fstep h3{font-size:22px;font-weight:900;margin:6px 0 10px;line-height:1.4}
+  .fstep p{margin:0;color:var(--ink-2);font-size:15px}
+  .fstep .tags{display:flex;flex-wrap:wrap;gap:8px;align-self:center}
+  .fstep .tag{font-size:12px;font-weight:700;background:var(--teal-mist);color:var(--teal-deep);padding:6px 10px;border-radius:999px}
+  .fstep .dur{font-size:12px;letter-spacing:.16em;color:var(--muted);font-weight:700}
+
+  /* ---------- Team ---------- */
+  .team{background:var(--paper-2);border-top:1px solid var(--line)}
+  .team-section-head{font-size:12px;letter-spacing:.24em;font-weight:800;color:var(--muted);margin:0 0 20px}
+  .team-block{margin-bottom:64px}
+  .team-block:last-child{margin-bottom:0}
+  .member-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .member{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 24px}
+  .member .av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:18px;margin-bottom:16px;color:#fff}
+  .member .av.front{background:linear-gradient(135deg,var(--teal),var(--teal-deep))}
+  .member .av.advisor{background:linear-gradient(135deg,var(--ink),var(--ink-2))}
+  .member h4{font-size:15px;font-weight:900;margin:0 0 4px}
+  .member .role{font-size:12px;font-weight:700;color:var(--teal);margin-bottom:12px;display:block}
+  .member .hist{font-size:12px;color:var(--muted);line-height:1.8}
+  .past-logos{margin-top:48px;padding-top:32px;border-top:1px solid var(--line)}
+  .past-logos p{font-size:11px;letter-spacing:.24em;color:var(--muted);font-weight:800;margin:0 0 14px}
+  .past-logo-list{display:flex;gap:10px;flex-wrap:wrap}
+  .past-logo-list span{font-size:13px;font-weight:700;color:var(--ink-2);padding:6px 16px;background:#fff;border:1px solid var(--line);border-radius:999px}
+
+  /* ---------- Stats ---------- */
+  .stats{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+  .stats .bg-circle{position:absolute;width:580px;height:580px;border-radius:50%;background:radial-gradient(circle at center,rgba(43,163,156,.35),transparent 60%);right:-160px;top:-160px}
+  .stats .bg-rings{position:absolute;left:-80px;bottom:-80px;opacity:.18}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+  .stat{padding:24px 28px;border-left:1px solid rgba(255,255,255,.12)}
+  .stat:first-child{border-left:0}
+  .stat .label{font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.6);font-weight:700;margin-bottom:14px}
+  .stat .val{font-family:"Inter",sans-serif;font-weight:800;font-size:64px;line-height:1;letter-spacing:-.03em;display:flex;align-items:baseline;gap:6px}
+  .stat .val .u{font-family:"Zen Kaku Gothic New",sans-serif;font-size:22px;font-weight:800}
+  .stat .val .teal{color:var(--teal)}
+  .stat .desc{margin-top:14px;color:rgba(255,255,255,.7);font-size:13px}
+
+  /* ---------- Voices ---------- */
+  .voice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .voice{border:1px solid var(--line);border-radius:20px;padding:36px;background:#fff;position:relative}
+  .voice .qm{position:absolute;top:24px;right:32px;font-family:"Inter",sans-serif;font-weight:900;color:var(--teal-mist);font-size:80px;line-height:1}
+  .voice .quote{font-size:17px;font-weight:700;line-height:1.75;margin:0 0 24px}
+  .voice .who{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--line)}
+  .voice .av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#fff;display:grid;place-items:center;font-weight:900;flex-shrink:0}
+  .voice .vname{font-weight:800;font-size:14px}
+  .voice .vrole{font-size:12px;color:var(--muted)}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--paper-2)}
+  .faq-list{border-top:1px solid var(--line)}
+  details.q{border-bottom:1px solid var(--line);padding:24px 0}
+  details.q summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:18px;font-size:18px;font-weight:800;line-height:1.5}
+  details.q summary::-webkit-details-marker{display:none}
+  details.q summary .qm{font-family:"Inter",sans-serif;color:var(--teal);font-size:24px;font-weight:900;flex-shrink:0;width:28px}
+  details.q summary .qt{margin-left:auto;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;flex-shrink:0;transition:transform .25s}
+  details.q[open] summary .qt{transform:rotate(45deg);background:var(--ink);color:#fff}
+  details.q .a{padding:16px 0 4px 46px;color:var(--ink-2);font-size:15px}
+
+  /* ---------- Final CTA ---------- */
+  .cta-final .btn.ghost{border-color:rgba(255,255,255,.4);color:#fff}
+  .cta-final .btn.ghost .arr{background:#fff;color:var(--ink)}
+  .cta-final{padding:120px 0;background:radial-gradient(900px 420px at 50% 30%,rgba(43,163,156,.18),transparent 70%),var(--ink);color:#fff;position:relative;overflow:hidden}
+  .cta-inner{max-width:680px;margin:0 auto;text-align:center;position:relative}
+  .cta-final h2{font-size:clamp(36px,4.4vw,60px);font-weight:900;line-height:1.25;margin:0 0 24px;letter-spacing:-.01em;word-break:keep-all}
+  .cta-final h2 em{font-style:normal;color:var(--teal)}
+  .cta-final .sub{color:rgba(255,255,255,.7);font-size:16px;margin:0 0 40px;max-width:520px;margin-left:auto;margin-right:auto}
+  .cta-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .cta-note{margin-top:24px;font-size:13px;color:rgba(255,255,255,.4)}
+
+  /* ---------- Footer ---------- */
+  footer.site{background:var(--ink);color:rgba(255,255,255,.65);padding:48px 0;border-top:1px solid rgba(255,255,255,.08)}
+  .ft-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+  .ft-logo{color:#fff;font-weight:900;font-size:20px;letter-spacing:.04em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  footer p.tag{max-width:340px;font-size:13px;margin:0}
+  .ft-cols{display:flex;gap:60px}
+  .ft-col h5{color:#fff;font-size:12px;letter-spacing:.2em;margin:0 0 14px}
+  .ft-col a{color:rgba(255,255,255,.65);text-decoration:none;display:block;font-size:13px;margin:6px 0}
+  .ft-col a:hover{color:#fff}
+  .ft-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.4)}
+
+  /* ===== 900px ===== */
+  @media(max-width:900px){
+    nav.primary{display:none}
+    .hero{padding:72px 0 80px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-visual{display:none}
+    .ceo-inner{grid-template-columns:1fr;gap:40px}
+    .ceo-photo{aspect-ratio:auto;height:280px}
+    .reason-grid{grid-template-columns:1fr}
+    .hybrid-grid{grid-template-columns:1fr;gap:16px}
+    .jobs-grid{grid-template-columns:repeat(2,1fr)}
+    .case-grid{grid-template-columns:1fr}
+    .member-grid{grid-template-columns:repeat(2,1fr)}
+    .stat-grid{grid-template-columns:repeat(2,1fr)}
+    .stat{border-left:0;border-top:1px solid rgba(255,255,255,.12);padding:24px 16px}
+    .stat:first-child,.stat:nth-child(2){border-top:0}
+    .stat:nth-child(odd){border-left:0}
+    .stat:nth-child(even){border-left:1px solid rgba(255,255,255,.12)}
+    .stat .val{font-size:52px}
+    .fstep{grid-template-columns:60px 1fr;gap:18px}
+    .fstep-num{width:60px;height:60px;font-size:20px}
+    .fstep>div:nth-child(3){grid-column:2/3}
+    .flow-line{left:30px}
+    .voice-grid{grid-template-columns:1fr}
+    .mission-kw{grid-template-columns:1fr}
+    section{padding:80px 0}
+    .sec-head{flex-direction:column;align-items:flex-start;gap:16px}
+    .ft-cols{gap:36px}
+  }
+
+  /* ===== 600px ===== */
+  @media(max-width:600px){
+    .site-inner{height:64px;gap:12px}
+    .nav-cta .btn:not(.teal){display:none}
+    .nav-cta{padding-left:12px;gap:8px}
+    .hero{padding:52px 0 60px}
+    .hero-title{font-size:clamp(34px,9vw,52px)}
+    .lede{font-size:15px}
+    .lede br{display:none}
+    .hero-badges{gap:8px}
+    .hero-badge{font-size:12px;padding:6px 12px}
+    .hero-cta{flex-direction:column;align-items:stretch;gap:10px}
+    .hero-cta .btn{width:100%;justify-content:center}
+    .hero-meta{gap:8px 12px}
+    .hero-meta .div{display:none}
+    section{padding:60px 0}
+    .sec-title{font-size:clamp(26px,7vw,36px)}
+    .sec-lede{max-width:100%}
+    .r-card{padding:28px 22px}
+    .jobs-grid{grid-template-columns:repeat(2,1fr)}
+    .member-grid{grid-template-columns:1fr}
+    .stat .val{font-size:42px}
+    .stat .val .u{font-size:15px}
+    .flow-line{left:24px}
+    .fstep{grid-template-columns:48px 1fr;gap:12px;padding:24px 0}
+    .fstep-num{width:48px;height:48px;font-size:16px}
+    .fstep h3{font-size:20px}
+    .fstep>div:nth-child(3){grid-column:2/3}
+    .voice{padding:24px 20px}
+    .voice .quote{font-size:15px}
+    details.q summary{font-size:16px;gap:12px}
+    details.q .a{padding-left:28px}
+    .cta-final{padding:72px 0}
+    .cta-actions{flex-direction:column;align-items:stretch;gap:10px}
+    .cta-actions .btn{width:100%;justify-content:center}
+    .ft-inner{flex-direction:column;gap:28px}
+    .ft-cols{flex-direction:column;gap:20px}
+    .ft-bottom{flex-direction:column;gap:6px;text-align:center}
+    .cases{padding:40px 0 48px}
+    .cpill{padding:8px 16px;font-size:13px}
+    .case-card{padding:28px 22px}
+    .case-result{flex-direction:column;align-items:flex-start;gap:12px}
+    .case-num .big{font-size:44px}
+    .mkw{padding:24px 20px}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ico-spark" viewBox="0 0 24 24"><path d="M12 2 L13.6 10.4 L22 12 L13.6 13.6 L12 22 L10.4 13.6 L2 12 L10.4 10.4 Z" fill="currentColor"/></symbol>
+    <symbol id="ico-rings" viewBox="0 0 200 200"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="100" cy="100" r="20"/><circle cx="100" cy="100" r="40"/><circle cx="100" cy="100" r="60"/><circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="98"/></g></symbol>
+    <symbol id="ico-cal" viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="44" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 26H56" stroke="currentColor" stroke-width="2"/><path d="M22 8V18M42 8V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="38" r="3" fill="currentColor"/><circle cx="32" cy="38" r="3" fill="currentColor"/><circle cx="42" cy="38" r="3" fill="currentColor"/></symbol>
+    <symbol id="ico-coin" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="2"/><text x="32" y="41" text-anchor="middle" font-size="26" font-weight="700" fill="currentColor" font-family="Inter,sans-serif">¥</text></symbol>
+    <symbol id="ico-remote" viewBox="0 0 64 64"><rect x="10" y="18" width="44" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 46H42M32 46V52M24 52H40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M24 30Q32 22 40 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M27 34Q32 28 37 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="32" cy="37" r="2.5" fill="currentColor"/></symbol>
+    <symbol id="ico-ai" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="M32 18V32L40 40" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="32" r="4" fill="currentColor"/><path d="M20 14L26 20M44 14L38 20M20 50L26 44M44 50L38 44" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- Header -->
+<header class="site">
+  <div class="wrap site-inner">
+    <a class="logo" href="tsukuchimu-lp.html" aria-label="ツクチム">
+      <span class="mark">
+        <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+          <path d="M5 22 L22 6 M22 6 H11 M22 6 V17" stroke="#0E1313" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </span>
+      ツクチム
+      <span class="badge">FRONT</span>
+    </a>
+    <nav class="primary">
+      <a href="#mission">ミッション</a>
+      <a href="#reasons">参加メリット</a>
+      <a href="#team">チーム</a>
+      <a href="#flow">稼働の流れ</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tsukuchimu-lp.html" class="btn sm">企業の方はこちら <span class="arr">↗</span></a>
+      <a href="#register" class="btn sm teal">フロント登録 <span class="arr">↗</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>フロントメンバー（採用支援のプロ）募集</div>
+      <h1 class="hero-title">
+        <span class="phrase">採用のプロとして、</span><br>
+        <span class="phrase">正しく<em>輝く場所</em>へ。</span>
+      </h1>
+      <p class="hero-subline">AI×人のハイブリッド体制で、戦略と実務に集中できる環境を。</p>
+      <p class="lede">ツクチムは、シリーズAまでの採用を伴走する「1人目人事」サービス。<br>AIが定型作業を担い、フロントは採用戦略と顧客との対話に集中できます。<br>副業・フリーランス・専属、スタイルは自由に選べます。</p>
+      <div class="hero-badges">
+        <div class="hero-badge"><span class="n">①</span>AIが下準備、あなたは戦略を</div>
+        <div class="hero-badge"><span class="n">②</span>高報酬・成果インセンティブ</div>
+        <div class="hero-badge"><span class="n">③</span>フルリモート案件多数</div>
+      </div>
+      <div class="hero-cta">
+        <a href="#register" class="btn teal">フロントとして参加する <span class="arr">↗</span></a>
+        <a href="#mission" class="btn">詳細を見る <span class="arr">↗</span></a>
+      </div>
+      <div class="hero-meta">
+        <span><span class="ok">✓</span>登録・審査は無料</span>
+        <div class="div"></div>
+        <span><span class="ok">✓</span>最短2週間で稼働開始</span>
+        <div class="div"></div>
+        <span><span class="ok">✓</span>専任サポート付き</span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="blob-hero blob-h1"></div>
+      <div class="blob-hero blob-h2"></div>
+      <svg class="sparkle-h" width="36" height="36" viewBox="0 0 24 24"><use href="#ico-spark"/></svg>
+      <div class="pcard pcard-main">
+        <div class="ph">
+          <div class="av">K</div>
+          <div>
+            <div class="pname">Kさん（フリーランス・フロント）</div>
+            <div class="prole">SaaS / ITエンジニア採用 専門 · 稼働3ヶ月目</div>
+          </div>
+        </div>
+        <div class="pstats">
+          <div class="pstat">
+            <div class="sv">38</div><div class="su">万円</div><div class="sl">先月の報酬額</div>
+          </div>
+          <div class="pstat">
+            <div class="sv">3</div><div class="su">社</div><div class="sl">同時並行担当</div>
+          </div>
+          <div class="pstat">
+            <div class="sv">94</div><div class="su">%</div><div class="sl">内定承諾率</div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard pcard-mini pc-remote">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 64 64"><use href="#ico-remote"/></svg></div>
+        <div><strong>フルリモート稼働</strong><span>全国どこからでもOK</span></div>
+      </div>
+      <div class="pcard pcard-mini pc-earn">
+        <div class="ico" style="background:rgba(245,209,75,.18);color:#9A7D00"><svg width="22" height="22" viewBox="0 0 64 64"><use href="#ico-coin"/></svg></div>
+        <div><strong>AI下支えで効率化</strong><span>戦略業務に集中できる</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission -->
+<section class="mission" id="mission">
+  <div class="wrap">
+    <div class="sec-tag">MISSION</div>
+    <h2 class="sec-title">次世代のHR、<em>人事をつくる。</em></h2>
+    <div class="mission-body">
+      <p>採用は、事業の最大のレバレッジ。</p>
+      <p>でも、初期スタートアップの経営者は採用に時間を割けない。フルコミの人事を雇うコストもない。</p>
+      <p>ツクチムは、AIと人のハイブリッド体制で、シリーズAまでの採用を月10万円から伴走する「1人目人事」サービス。</p>
+      <p>経営者の隣で組織を作る仕事を、AIに下支えされながら、プロとして担う。</p>
+      <p>それが、ツクチムのフロントが立つ場所です。</p>
+    </div>
+    <div class="mission-kw">
+      <div class="mkw">
+        <span class="kw-en">withAI</span>
+        <p>議事録・採用広報・タスク管理はAIワークフローが自動化。フロントは戦略と顧客対話に集中できます。</p>
+      </div>
+      <div class="mkw">
+        <span class="kw-en">1人目人事</span>
+        <p>経営者の隣で採用戦略を設計し、実行まで伴走する。スタートアップのゼロイチを担うポジションです。</p>
+      </div>
+      <div class="mkw">
+        <span class="kw-en">データドリブン</span>
+        <p>面談数・承諾率・母集団人数などのKPIで採用を動かす。感覚ではなく数字で意思決定する環境です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CEO Message -->
+<section class="ceo-msg">
+  <div class="wrap">
+    <div class="ceo-inner">
+      <div>
+        <div class="ceo-photo">
+          <img src="写真_井端さん.webp" alt="井端 裕輝 — 代表取締役 CEO">
+        </div>
+        <div class="ceo-profile">
+          <div class="ceo-name">井端 裕輝</div>
+          <div class="ceo-role">代表取締役 CEO / PO</div>
+          <div class="ceo-hist">小学校教諭 → リクルートライフスタイル（全国売上1位・2位）→ HR系スタートアップで累計300社の採用支援 → 2020年株式会社C創業 → 松尾研AIスタートアップなど30社以上のHR/HRBPを担当 → 2024年10月ツクチムをリリース</div>
+        </div>
+      </div>
+      <div>
+        <div class="ceo-tag">CEO MESSAGE</div>
+        <blockquote>
+          様々なビジネス経験を通じて、採用のサポートをしているだけだとやりきれないことはあるし、組織側だけのサポートをしていても事業成長に紐づけていかないと意味がないし…と感じていました。<br><br>
+          そんな中で「ツクチム」のようにデータドリブン・組織開発と採用両輪でのサポート形式を取ることによって、クライアントのニーズにより寄り添えると気づきました。<br><br>
+          「事業の最大のボトルネックは人」とも言われており、不確実性の高い世の中において、結局「強いチーム・組織がある」ことほどレバレッジが効くものはないんだと感じています。組織や人に対して強い想いを持つ私たちが伴走することで、様々な企業や個人をより高次元に導けたら嬉しく思います。
+        </blockquote>
+        <div class="ceo-sig">C,Inc. 代表取締役 &nbsp;井端 裕輝</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reasons -->
+<section class="reasons" id="reasons">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-tag">WHY TSUKUCHIMU</div>
+        <h2 class="sec-title">ツクチムが選ばれる、<em>4つの理由。</em></h2>
+      </div>
+      <p class="sec-lede">採用のプロとして正当に評価され、AIの力を活かしながら持続的に活躍できる環境を整えています。</p>
+    </div>
+    <div class="reason-grid">
+
+      <div class="r-card featured">
+        <div class="num-bg">01</div>
+        <div class="ico"><svg width="32" height="32" viewBox="0 0 64 64"><use href="#ico-ai"/></svg></div>
+        <div class="sub">AI HYBRID OPERATION</div>
+        <h3>AIが下準備、<br>あなたは戦略を。</h3>
+        <p>議事録・採用広報の初稿・タスク管理はAIワークフローが自動化。フロントは採用戦略の立案と顧客との対話に集中できます。</p>
+        <ul>
+          <li>議事録・ネクストアクションの自動生成</li>
+          <li>採用広報記事の初稿作成</li>
+          <li>経験者チームによるアウトプットレビュー</li>
+        </ul>
+      </div>
+
+      <div class="r-card">
+        <div class="num-bg">02</div>
+        <div class="ico"><svg width="32" height="32" viewBox="0 0 64 64"><use href="#ico-cal"/></svg></div>
+        <div class="sub">FLEXIBLE WORK STYLE</div>
+        <h3>選べる働き方。<br>あなたのペースで。</h3>
+        <p>副業・フリーランス・専属パートナーから、ライフスタイルに合ったスタイルを選べます。週1〜フルタイムまで柔軟に対応。</p>
+        <ul>
+          <li>副業・週1〜OK（本業と並行可）</li>
+          <li>フリーランス・複数社同時担当</li>
+          <li>専属パートナー（優先案件・専任サポート）</li>
+        </ul>
+      </div>
+
+      <div class="r-card">
+        <div class="num-bg">03</div>
+        <div class="ico" style="background:rgba(245,209,75,.15)"><svg width="32" height="32" viewBox="0 0 64 64" style="color:#9A7D00"><use href="#ico-coin"/></svg></div>
+        <div class="sub">COMPETITIVE REWARD</div>
+        <h3>業界平均1.4倍の<br>報酬体系。</h3>
+        <p>月額固定＋成果インセンティブの二段階報酬。採用成功件数に応じて加算され、成果を出すほど収入が増えます。</p>
+        <ul>
+          <li>月額固定報酬（経験・稼働量に応じて設定）</li>
+          <li>採用決定ごとのインセンティブ加算</li>
+          <li>稼働実績者の月間平均報酬 ¥35万（2025年実績）</li>
+        </ul>
+      </div>
+
+      <div class="r-card">
+        <div class="num-bg">04</div>
+        <div class="ico"><svg width="32" height="32" viewBox="0 0 64 64"><use href="#ico-remote"/></svg></div>
+        <div class="sub">FULL REMOTE SUPPORT</div>
+        <h3>フルリモート案件が<br>80%以上。</h3>
+        <p>全国どこからでも稼働できる案件が大半を占めます。Slack・Notion・ATS活用の非同期ワークフローで場所を問わず活躍できます。</p>
+        <ul>
+          <li>フルリモート案件 80%以上</li>
+          <li>専任ツールセット提供（ATS・Slack等）</li>
+          <li>オンボーディング・定期サポートあり</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI×人のハイブリッド体制 -->
+<section class="hybrid">
+  <div class="bg-circle"></div>
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:48px">
+      <div>
+        <div class="sec-tag" style="color:var(--teal)">HYBRID OPERATION</div>
+        <h2 class="sec-title" style="color:#fff">人とAIが、<em style="color:var(--teal)">それぞれの強みを担う。</em></h2>
+      </div>
+      <p class="sec-lede" style="color:rgba(255,255,255,.6)">定型作業はAIに任せ、フロントは意思決定と顧客対話に集中する体制が、ツクチムの最大の差別化です。</p>
+    </div>
+    <div class="hybrid-grid">
+      <div class="h-card">
+        <span class="h-label">FRONT（人）</span>
+        <h3>フロントメンバー</h3>
+        <p class="h-role">戦略立案・顧客対話・実務推進</p>
+        <ul>
+          <li>採用KPIの設計と週次マネジメント</li>
+          <li>新たな打ち手の提案とロードマップ更新</li>
+          <li>候補者・経営者との対話、クロージング</li>
+          <li>採用手法・媒体の選定と実行</li>
+        </ul>
+      </div>
+      <div class="h-card center">
+        <span class="h-label">AI WORKFLOW</span>
+        <h3>AIワークフロー</h3>
+        <p class="h-role">定型タスクの自動化</p>
+        <ul>
+          <li>議事録の自動生成とネクストアクション管理</li>
+          <li>採用広報記事の初稿作成</li>
+          <li>スカウト文面のドラフト生成</li>
+          <li>KPIデータの集計・可視化</li>
+        </ul>
+        <p class="h-note">日々アップデート。将来的には大部分の定型タスクを自動化予定。</p>
+      </div>
+      <div class="h-card">
+        <span class="h-label">ADVISOR（経験者チーム）</span>
+        <h3>人事アドバイザー</h3>
+        <p class="h-role">ノウハウ提供・タスクレビュー</p>
+        <ul>
+          <li>広範な人事領域の疑問・問題へのアドバイス</li>
+          <li>フロントのアウトプット品質レビュー</li>
+          <li>難易度の高い案件への介入サポート</li>
+          <li>元CHRO・元リクルートなど経験者が在籍</li>
+        </ul>
+      </div>
+    </div>
+    <p class="hybrid-footer">Opsの磨き込みにより、低コストで高いカバー範囲を実現。</p>
+  </div>
+</section>
+
+<!-- 8つの仕事 -->
+<section class="jobs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-tag">RESPONSIBILITIES</div>
+        <h2 class="sec-title">フロントとして担う、<em>8つの仕事。</em></h2>
+      </div>
+      <p class="sec-lede">採用戦略の設計から社内人事の育成まで、経営者の隣で組織づくりを一気通貫で担います。</p>
+    </div>
+    <div class="jobs-grid">
+      <div class="job-card">
+        <span class="num">01</span>
+        <div class="title">採用戦略の立案</div>
+        <p>次の資金調達や年間売上目標から逆算した採用戦略・実務ロードマップを策定します。</p>
+      </div>
+      <div class="job-card">
+        <span class="num">02</span>
+        <div class="title">要員計画</div>
+        <p>目標に照らした組織図・要員計画を設計します。toB/toC/ビジネスモデル別に最適化。</p>
+      </div>
+      <div class="job-card">
+        <span class="num">03</span>
+        <div class="title">採用KPIの設定</div>
+        <p>面談数・母集団人数・行動量・承諾率などのKPIを具体化し、週次で追います。</p>
+      </div>
+      <div class="job-card">
+        <span class="num">04</span>
+        <div class="title">採用手法・媒体選定</div>
+        <p>リファラル30〜60%を軸にした媒体運用の設計と実行。媒体費の最適化も担います。</p>
+      </div>
+      <div class="job-card">
+        <span class="num">05</span>
+        <div class="title">採用広報の実施</div>
+        <p>経営陣・メンバーインタビューから始める広報設計。記事初稿はAIがサポートします。</p>
+      </div>
+      <div class="job-card">
+        <span class="num">06</span>
+        <div class="title">採用基本セットの作成</div>
+        <p>採用ページ・カルチャーデック・スカウト文面など、採用に必要なコンテンツを整備します。</p>
+      </div>
+      <div class="job-card">
+        <span class="num">07</span>
+        <div class="title">リファラル採用</div>
+        <p>会社のカルチャーに合った制度設計と浸透施策。リファラル比率30%超を目指します。</p>
+      </div>
+      <div class="job-card">
+        <span class="num">08</span>
+        <div class="title">社内人事育成</div>
+        <p>未経験も含めた社内人事体制の構築。シリーズA後の「卒業」を見据えた引き継ぎ設計まで。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case type marquee -->
+<section class="cases">
+  <div class="cases-label">
+    <span class="stack">
+      <span class="ja">支援案件の種類</span>
+      <span class="en">CASE TYPES</span>
+    </span>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="cpill"><span class="dot"></span>スタートアップ向け採用設計</div>
+      <div class="cpill"><span class="dot"></span>SaaS企業のエンジニア採用</div>
+      <div class="cpill"><span class="dot"></span>上場企業の管理職採用</div>
+      <div class="cpill"><span class="dot"></span>スカウト媒体運用代行</div>
+      <div class="cpill"><span class="dot"></span>外資コンサル向けビジネス職</div>
+      <div class="cpill"><span class="dot"></span>医療・ヘルスケア採用</div>
+      <div class="cpill"><span class="dot"></span>D2C / EC 幹部採用</div>
+      <div class="cpill"><span class="dot"></span>フィンテック採用支援</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>スタートアップ向け採用設計</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>SaaS企業のエンジニア採用</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>上場企業の管理職採用</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>スカウト媒体運用代行</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>外資コンサル向けビジネス職</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>医療・ヘルスケア採用</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>D2C / EC 幹部採用</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>フィンテック採用支援</div>
+    </div>
+  </div>
+  <div class="marquee rev">
+    <div class="marquee-track">
+      <div class="cpill"><span class="dot"></span>選考体験設計・クロージング</div>
+      <div class="cpill"><span class="dot"></span>エージェントリレーション</div>
+      <div class="cpill"><span class="dot"></span>リファラル採用設計</div>
+      <div class="cpill"><span class="dot"></span>オファー面談・意思決定支援</div>
+      <div class="cpill"><span class="dot"></span>採用ブランディング</div>
+      <div class="cpill"><span class="dot"></span>ハイレイヤー採用支援</div>
+      <div class="cpill"><span class="dot"></span>LinkedIn活用スカウト</div>
+      <div class="cpill"><span class="dot"></span>メガベンチャー増員採用</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>選考体験設計・クロージング</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>エージェントリレーション</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>リファラル採用設計</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>オファー面談・意思決定支援</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>採用ブランディング</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>ハイレイヤー採用支援</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>LinkedIn活用スカウト</div>
+      <div class="cpill" aria-hidden="true"><span class="dot"></span>メガベンチャー増員採用</div>
+    </div>
+  </div>
+</section>
+
+<!-- Case studies -->
+<section class="case-studies">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-tag">RESULTS</div>
+        <h2 class="sec-title">フロントが生み出した、<em>具体的な成果。</em></h2>
+      </div>
+      <p class="sec-lede">採用戦略の設計から実行まで、フロントが一気通貫で担った支援事例の一部です。</p>
+    </div>
+    <div class="case-grid">
+
+      <div class="case-card">
+        <div class="case-eyebrow">
+          <span class="case-badge">生成AIコンサル</span>
+          <span class="case-badge">30名規模</span>
+        </div>
+        <h3>株式会社ロビンソン・コンサルティング</h3>
+        <div class="case-result">
+          <div class="case-num">
+            <span class="big">8</span><span class="u">倍</span>
+          </div>
+          <div class="case-desc">4ヶ月で月間面談数が<br>10名 → 80名に拡大</div>
+        </div>
+        <div class="case-chart">
+          <div class="chart-label">月間面談数の推移</div>
+          <div class="chart-bars">
+            <div class="bar" style="height:12px"><span class="bv">10名</span></div>
+            <div class="bar" style="height:30px"><span class="bv">30名</span></div>
+            <div class="bar" style="height:70px"><span class="bv">70名</span></div>
+            <div class="bar" style="height:80px"><span class="bv">80名</span></div>
+          </div>
+          <div class="chart-xlabels">
+            <span class="bl">1ヶ月目</span>
+            <span class="bl">2ヶ月目</span>
+            <span class="bl">3ヶ月目</span>
+            <span class="bl">4ヶ月目</span>
+          </div>
+        </div>
+        <ul class="case-tasks">
+          <li>次の調達までのロードマップ策定</li>
+          <li>リファラル採用の導入・仕組み化</li>
+          <li>採用KPI設定と媒体運用方法の決定</li>
+          <li>社内未経験人事の育成</li>
+        </ul>
+      </div>
+
+      <div class="case-card">
+        <div class="case-eyebrow">
+          <span class="case-badge">ECアプリケーション</span>
+          <span class="case-badge">約50名規模</span>
+        </div>
+        <h3>株式会社カウシェ</h3>
+        <div class="case-result">
+          <div class="case-num">
+            <span class="big" style="font-size:36px;color:#fff">採用実務＋</span>
+          </div>
+          <div class="case-desc">資金調達リリースに関わる多くのタスクのプロマネ・遂行まで一気通貫で担当</div>
+        </div>
+        <ul class="case-tasks">
+          <li>複数ポジションの縦割り採用実務</li>
+          <li>資金調達リリースの方向決めと実行</li>
+          <li>カンパニーデックのディレクション・製作</li>
+          <li>インタビュー記事制作・採用サイトディレクション</li>
+          <li>調達関連イベント・ウェビナーのプロマネ</li>
+          <li>年間人事/採用予算の設計</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Flow -->
+<section class="flow" id="flow">
+  <div class="wrap">
+    <div class="sec-head" style="align-items:flex-start">
+      <div style="max-width:780px">
+        <div class="sec-tag">PROCESS</div>
+        <h2 class="sec-title">稼働までの<em>4ステップ。</em></h2>
+        <p class="sec-lede" style="margin-top:20px;max-width:600px">エントリーから実際の案件稼働まで、最短2週間。専任担当者がすべてのステップをサポートします。</p>
+      </div>
+    </div>
+    <div class="flow-track">
+      <div class="flow-line"></div>
+      <div class="fstep">
+        <div class="fstep-num">01</div>
+        <div>
+          <div class="dur">DAY 1</div>
+          <h3>エントリー</h3>
+          <p>フォームから経歴・専門領域・稼働希望を入力してご応募ください。審査は無料です。</p>
+        </div>
+        <div>
+          <div class="tags">
+            <span class="tag">オンラインフォーム</span><span class="tag">書類審査</span><span class="tag">無料</span>
+          </div>
+        </div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-num">02</div>
+        <div>
+          <div class="dur">DAY 3-5</div>
+          <h3>面談・スキル審査</h3>
+          <p>担当者とのオンライン面談でスキル・経験・稼働条件をヒアリング。専門性に応じた案件タイプを確認します。</p>
+        </div>
+        <div>
+          <div class="tags">
+            <span class="tag">オンライン面談</span><span class="tag">スキルヒアリング</span>
+          </div>
+        </div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-num">03</div>
+        <div>
+          <div class="dur">WEEK 1-2</div>
+          <h3>案件マッチング</h3>
+          <p>希望条件・専門領域・稼働スタイルに合わせて最適な案件を提案。複数案件の中から選択できます。</p>
+        </div>
+        <div>
+          <div class="tags">
+            <span class="tag">案件提案</span><span class="tag">条件調整</span><span class="tag">契約締結</span>
+          </div>
+        </div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-num">04</div>
+        <div>
+          <div class="dur">WEEK 2以降</div>
+          <h3>稼働スタート</h3>
+          <p>専任サポートのもとで企業担当者へのオンボーディングを実施。稼働開始後も週次でフォローします。</p>
+        </div>
+        <div>
+          <div class="tags">
+            <span class="tag">オンボーディング</span><span class="tag">週次レビュー</span><span class="tag">専任サポート</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-tag">TEAM</div>
+        <h2 class="sec-title">採用・人事・広告のプロが在籍。<em>CHROがアドバイザーとして支える。</em></h2>
+      </div>
+      <p class="sec-lede">リクルート・楽天・ユーザベース・レバレジーズ出身メンバーが揃うチームです。</p>
+    </div>
+
+    <div class="team-block">
+      <div class="team-section-head">FRONT MEMBERS</div>
+      <div class="member-grid">
+        <div class="member">
+          <div class="av front">井</div>
+          <h4>井端 裕輝</h4>
+          <span class="role">CEO / PO</span>
+          <div class="hist">小学校教諭 → リクルートライフスタイル（全国売上1位・2位）→ HR系スタートアップで累計300社支援 → 2020年C創業 → 累計30社以上のHR/HRBP担当</div>
+        </div>
+        <div class="member">
+          <div class="av front">飯</div>
+          <h4>飯田 航成</h4>
+          <span class="role">ブランディングマネージャー</span>
+          <div class="hist">元広告代理店プランナー。年間500億円の広告費を運用。SUZUKI / JCB / ニップン等のマーケ戦略策定。Meta・X等のプロデュース業務。博報堂内の厳選メンバーとして地方×LIVEコマース新規事業開発。</div>
+        </div>
+        <div class="member">
+          <div class="av front">林</div>
+          <h4>林 樹</h4>
+          <span class="role">PM</span>
+          <div class="hist">元アクサ生命。元スタジアム（大手企業向けインサイドセールス・営業コンサル）。メガベンチャーでEC / SaaS企業の中途採用支援RA。</div>
+        </div>
+        <div class="member">
+          <div class="av front">石</div>
+          <h4>石附 陸</h4>
+          <span class="role">PM</span>
+          <div class="hist">元ニトリ。メガベンチャーRAとして大手〜中小企業の中途採用支援。現在は人事立ち上げ期〜シリーズA以降の企業の採用支援を担当。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-block">
+      <div class="team-section-head">ADVISORS</div>
+      <div class="member-grid">
+        <div class="member">
+          <div class="av advisor">加</div>
+          <h4>加藤 将人</h4>
+          <span class="role">アドバイザー</span>
+          <div class="hist">元リクルート（SUUMO事業戦略マネージャー）。元CUC全国8法人代表（1,000名規模マネジメント）。元パナソニックインダストリー人事戦略責任者。元Luup CHRO。</div>
+        </div>
+        <div class="member">
+          <div class="av advisor">山</div>
+          <h4>山永 航太</h4>
+          <span class="role">アドバイザー</span>
+          <div class="hist">元楽天人事（新卒採用）。元POL採用コンサルティング部門立ち上げ。2020年カウシェ人事複業。2021年独立。</div>
+        </div>
+        <div class="member">
+          <div class="av advisor">加</div>
+          <h4>加藤 康則</h4>
+          <span class="role">アドバイザー</span>
+          <div class="hist">元マイナビ部長。サーキュレーションでプロ人材コンサルタント兼PM。キャリアコンサルタント（国家資格）。マルゴトでRPO事業リーダー。採用難職種支援・組織開発に特化。</div>
+        </div>
+        <div class="member">
+          <div class="av advisor">清</div>
+          <h4>清水 奈央</h4>
+          <span class="role">アドバイザー</span>
+          <div class="hist">元レバレジーズ（セールス・人事・セールスマネージャー）約8年。元ユーザベース SaaSリクルーター。元SEVENRICH GROUP 採用責任者兼HRBP（39事業の人事機能立ち上げ）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="past-logos">
+      <p>過去在籍企業</p>
+      <div class="past-logo-list">
+        <span>RECRUIT</span>
+        <span>Rakuten</span>
+        <span>UZABASE</span>
+        <span>Leverages</span>
+        <span>Panasonic</span>
+        <span>Luup</span>
+        <span>Nitori</span>
+        <span>AXA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+  <div class="bg-circle"></div>
+  <svg class="bg-rings" width="380" height="380" viewBox="0 0 200 200" style="color:#2BA39C"><use href="#ico-rings"/></svg>
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:40px">
+      <div>
+        <div class="sec-tag" style="color:var(--teal)">NUMBERS</div>
+        <h2 class="sec-title" style="color:#fff">パートナーの、<em style="color:var(--teal)">実績。</em></h2>
+      </div>
+      <p class="sec-lede" style="color:rgba(255,255,255,.65)">登録から稼働、報酬まで。ツクチムのフロントエコシステムの現状をデータで示します。</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="label">累計支援企業数</div>
+        <div class="val"><span class="teal">30</span><span class="u">+ 社</span></div>
+        <div class="desc">シード〜シリーズA前後が中心</div>
+      </div>
+      <div class="stat">
+        <div class="label">月間平均報酬</div>
+        <div class="val">¥<span class="teal num">35</span><span class="u">万</span></div>
+        <div class="desc">稼働実績者の平均（2025年実績）</div>
+      </div>
+      <div class="stat">
+        <div class="label">フルリモート案件</div>
+        <div class="val"><span class="teal">80</span><span class="u">%以上</span></div>
+        <div class="desc">場所を問わず活躍できる環境</div>
+      </div>
+      <div class="stat">
+        <div class="label">最短稼働開始まで</div>
+        <div class="val">2<span class="u">週間</span></div>
+        <div class="desc">エントリーから案件開始まで</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Voices -->
+<section id="voice">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-tag">VOICE</div>
+        <h2 class="sec-title">フロントメンバーの<em>声。</em></h2>
+      </div>
+      <p class="sec-lede">実際にツクチムで活躍するフロントメンバーのリアルな声をご紹介します。</p>
+    </div>
+    <div class="voice-grid">
+      <div class="voice">
+        <div class="qm">"</div>
+        <p class="quote">「副業として参加したのに、3ヶ月で本業に並ぶ報酬になりました。専任サポートが丁寧で、企業との調整もスムーズ。採用の仕事だけに集中できています。」</p>
+        <div class="who">
+          <div class="av">Y</div>
+          <div>
+            <div class="vname">Y. 副業フロント（本業：人事部長）</div>
+            <div class="vrole">SaaS / エンジニア採用 専門 — 週2〜稼働</div>
+          </div>
+        </div>
+      </div>
+      <div class="voice">
+        <div class="qm">"</div>
+        <p class="quote">「フリーランスとして複数社を担当していますが、ツクチムの案件はクライアントの採用戦略がしっかりしていて、やりがいが違います。報酬水準も期待以上でした。」</p>
+        <div class="who">
+          <div class="av">M</div>
+          <div>
+            <div class="vname">M. フリーランスフロント</div>
+            <div class="vrole">スタートアップ・ハイレイヤー採用 専門 — フルタイム稼働</div>
+          </div>
+        </div>
+      </div>
+      <div class="voice">
+        <div class="qm">"</div>
+        <p class="quote">「フィンテック領域は媒体選定から難しいと思われがちですが、ツクチムは採用要件の整理から一緒にやってくれるので、提案の精度が上がりました。稼働半年で累計報酬が200万を超えています。」</p>
+        <div class="who">
+          <div class="av">T</div>
+          <div>
+            <div class="vname">T. 専属フロント</div>
+            <div class="vrole">フィンテック / 金融系スタートアップ採用 — フルタイム稼働</div>
+          </div>
+        </div>
+      </div>
+      <div class="voice">
+        <div class="qm">"</div>
+        <p class="quote">「スカウト運用の型を自分で持っていたので、それをそのまま活かせる案件をすぐにアサインしてもらえました。属人的なスキルを正当に評価してもらえる環境です。」</p>
+        <div class="who">
+          <div class="av">A</div>
+          <div>
+            <div class="vname">A. スカウト運用スペシャリスト</div>
+            <div class="vrole">D2C / メガベンチャー増員採用 専門 — 週3稼働</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-tag">FAQ</div>
+        <h2 class="sec-title">よくある<em>ご質問。</em></h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      <details class="q" open>
+        <summary><span class="qm">Q.</span>どんな経験があれば応募できますか?<span class="qt">+</span></summary>
+        <div class="a">採用・人事領域での実務経験が1年以上あれば、業種・職種は問いません。人材紹介会社、社内人事、HR系スタートアップ、ダイレクトリクルーティング等、幅広いバックグラウンドのフロントが活躍しています。</div>
+      </details>
+      <details class="q">
+        <summary><span class="qm">Q.</span>「AIワークフロー」とは具体的に何ですか?<span class="qt">+</span></summary>
+        <div class="a">議事録の自動生成、採用広報記事の初稿作成、ネクストアクション管理、スカウト文面のドラフト、KPIデータの集計などを自動化する仕組みです。フロントが本来の戦略・対話業務に集中できる体制を作るためのもので、日々アップデートしています。</div>
+      </details>
+      <details class="q">
+        <summary><span class="qm">Q.</span>どんな企業の採用を担当しますか?<span class="qt">+</span></summary>
+        <div class="a">シード〜シリーズA前のスタートアップ（メンバー2〜30名）を中心に、生成AI・SaaS・EC・フードテック・ロボティクスなど業種は分散しています。担当企業の詳細は面談時にご確認いただけます。</div>
+      </details>
+      <details class="q">
+        <summary><span class="qm">Q.</span>副業・フリーランスでも応募できますか?<span class="qt">+</span></summary>
+        <div class="a">はい、副業・フリーランス・専属いずれの形態でも歓迎します。週1〜のスポット稼働から、フルタイム稼働まで、希望する稼働量に応じてご相談ください。</div>
+      </details>
+      <details class="q">
+        <summary><span class="qm">Q.</span>報酬の仕組みを教えてください。<span class="qt">+</span></summary>
+        <div class="a">月額固定報酬＋採用決定インセンティブの二段階制です。固定報酬は稼働量・経験に応じて設定します。採用が決定するごとにインセンティブが加算され、高い成果を出すほど収入が増える設計です。具体的な金額は面談時にご説明します。</div>
+      </details>
+      <details class="q">
+        <summary><span class="qm">Q.</span>稼働量はどれくらい必要ですか?<span class="qt">+</span></summary>
+        <div class="a">副業（週1〜）からフルタイムまで柔軟に対応しています。担当する案件規模や企業フェーズにより調整しますので、まずは希望稼働量をお知らせください。</div>
+      </details>
+      <details class="q">
+        <summary><span class="qm">Q.</span>CHRO経験がなくても応募できますか?<span class="qt">+</span></summary>
+        <div class="a">はい、採用・人事領域での実務経験が1年以上あれば可能です。元CHROのアドバイザー陣がアウトプットのレビューをする体制があるため、未経験領域も安心してサポートを受けられます。</div>
+      </details>
+      <details class="q">
+        <summary><span class="qm">Q.</span>フルリモートで働けますか?<span class="qt">+</span></summary>
+        <div class="a">案件の80%以上がフルリモート対応です。Slack・Notion・HERPなどのツールを活用した非同期ワークスタイルが基本で、全国どこからでも稼働できます。一部案件ではオンサイトを求める場合があります（事前にご案内します）。</div>
+      </details>
+      <details class="q">
+        <summary><span class="qm">Q.</span>複数案件を同時に担当できますか?<span class="qt">+</span></summary>
+        <div class="a">はい、稼働量と相談のうえ複数案件の同時担当が可能です。担当者が各案件の状況を把握してサポートするので、分散してもコントロールしやすい体制を整えています。</div>
+      </details>
+      <details class="q">
+        <summary><span class="qm">Q.</span>支援先企業との直接契約は可能ですか?<span class="qt">+</span></summary>
+        <div class="a">ツクチムを通じた契約が基本となります。支援先企業との直接契約・引き抜きは、契約条件上お断りしております。詳細は面談時にご説明します。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-final" id="register">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="sec-tag" style="color:var(--teal);justify-content:center;margin-bottom:28px">ENTRY</div>
+      <h2>あなたの採用スキルを、<br><em>もっと輝かせよう。</em></h2>
+      <p class="sub">まずはフロント登録から。スキルと希望条件をご記入いただければ、担当者から5営業日以内にご連絡します。登録・審査は完全無料です。</p>
+      <div class="cta-actions">
+        <a href="#" class="btn white">フロントとして参加する <span class="arr" style="background:var(--ink);color:#fff">↗</span></a>
+        <a href="tsukuchimu-lp.html" class="btn ghost">企業向けサービスを見る <span class="arr">↗</span></a>
+      </div>
+      <p class="cta-note">採用担当からの電話営業・メール営業は一切行いません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="ft-inner">
+      <div>
+        <div class="ft-logo">
+          <svg width="20" height="20" viewBox="0 0 28 28" aria-hidden="true">
+            <path d="M5 22 L22 6 M22 6 H11 M22 6 V17" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          ツクチム
+        </div>
+        <p class="tag">その企業に合った採用の形を、つくる。<br>AIと人のハイブリッドによる1人目人事サービス。</p>
+      </div>
+      <div class="ft-cols">
+        <div class="ft-col">
+          <h5>FRONT</h5>
+          <a href="#register">フロント登録</a>
+          <a href="#reasons">参加メリット</a>
+          <a href="#flow">稼働の流れ</a>
+          <a href="#team">チーム</a>
+        </div>
+        <div class="ft-col">
+          <h5>SERVICE</h5>
+          <a href="tsukuchimu-lp.html">企業向けサービス</a>
+          <a href="tsukuchimu-lp.html#pricing">料金プラン</a>
+          <a href="tsukuchimu-lp.html#voice">導入事例</a>
+        </div>
+        <div class="ft-col">
+          <h5>COMPANY</h5>
+          <a href="#">会社概要</a>
+          <a href="#">プライバシーポリシー</a>
+          <a href="mailto:y.ibata@inc-c.co.jp">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 株式会社C（Tsukuchimu）</span>
+      <span>iFarm MVP受賞 — 2024</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
